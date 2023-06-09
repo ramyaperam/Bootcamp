@@ -1,1 +1,144 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Profile Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 20px auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Employee Profile Form</h1>
+
+  <form id="employeeForm">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" required>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+
+    <label for="phone">Phone Number:</label>
+    <input type="text" id="phone" required>
+
+    <label for="department">Department:</label>
+    <select id="department" required>
+      <option value="">Select Department</option>
+      <option value="hr">HR</option>
+      <option value="finance">Finance</option>
+      <option value="it">IT</option>
+    </select>
+
+    <label for="jobTitle">Job Title:</label>
+    <input type="text" id="jobTitle" required>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <h2>Employee Profiles:</h2>
+
+  <table id="employeeTable">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Department</th>
+        <th>Job Title</th>
+      </tr>
+    </thead>
+    
+  </table>
+  <script>
+    const form = document.getElementById('employeeForm');
+    const table = document.getElementById('employeeTable');
+    const firstNameInput = document.getElementById('firstName');
+    const lastNameInput = document.getElementById('lastName');
+    const emailInput = document.getElementById('email');
+    const phoneInput = document.getElementById('phone');
+    const departmentInput = document.getElementById('department');
+    const jobTitleInput = document.getElementById('jobTitle');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      if (form.checkValidity()) {
+        const newRow = table.insertRow();
+
+        const firstNameCell = newRow.insertCell();
+        firstNameCell.textContent = firstNameInput.value;
+
+        const lastNameCell = newRow.insertCell();
+        lastNameCell.textContent = lastNameInput.value;
+
+        const emailCell = newRow.insertCell();
+        emailCell.textContent = emailInput.value;
+
+        const phoneCell = newRow.insertCell();
+        phoneCell.textContent = phoneInput.value;
+
+        const departmentCell = newRow.insertCell();
+        departmentCell.textContent = departmentInput.value;
+
+        const jobTitleCell = newRow.insertCell();
+        jobTitleCell.textContent = jobTitleInput.value;
+      }
+    });
+  </script>
+</body>
+</html>
